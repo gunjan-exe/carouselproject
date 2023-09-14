@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./carousel.css";
+import { useEffect } from "react";
+import { useState } from "react";
 import { places } from "../Helper/CarouselData";
+import { Button } from "@mui/material";
+//import Button from "@mui/material/Button";
+//import {ArrowBackIos} from "../@mui/icons-material"
+//import {ArrowForwardIcon} from "..@mui/icons-material"
 
 function Carousel( { images } ) {
- // const [current, setCurrent] = useState(0);
+ //const [current, setCurrent] = useState(0);
 
- // useEffect(() => {
-    // Fetch the images data
-    // No need to fetch the data again because the images data is already defined in carouseldata.js
- // }, []);
-
+ 
   return (
     <div className="Carousel">
-   
-        <div className="Inner" >
+        <div className="Inner" style={{ backgroundImage: `url(${images[3].img})`}}>
         <div className="left"> 
-       
+        <ArrowBackIos/>
             </div>
             
             <div className="right">
@@ -23,8 +24,8 @@ function Carousel( { images } ) {
             </div>
 
         { places.map((image, index) => {
-        return <div key={index} className= {index == 0 ?"cards cards-active" : "cards"} > 
-            <img className="imgimage" src={ '/src/Images/${image.image}'} alt ="" style={{ width: '600px', height: '500px' }} /> 
+        return <div key={index} className= {index == 3 ?"cards cards-active" : "cards"} > 
+            <img className="imgimage" src={ image.image } alt =""  /> 
 
             <div className="overlay">
                 <h2 className="card_title">
@@ -36,6 +37,5 @@ function Carousel( { images } ) {
         </div>
     </div>
   );
-}
-
+    }
 export default Carousel;
